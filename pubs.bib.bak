@@ -4,7 +4,7 @@
 
 @Article{Konstantinou2018,
   Title                    = {{Origin of radiation tolerance in amorphous \ce{Ge2Sb2Te5} phase-change random-access memory material.}},
-  Author                   = {Konstantinou, Konstantinos and Lee, Tae Hoon and \textbf{Mocanu, Felix C.} and Elliott, Stephen R.},
+  Author                   = {Konstantinou, Konstantinos and Lee, Tae Hoon and Mocanu, Felix C and Elliott, Stephen R},
   Journal                  = {Proceedings of the National Academy of Sciences of the United States of America},
   Year                     = {2018},
 
@@ -25,7 +25,7 @@
 
 @Article{Mavracic2018,
   Title                    = {{Similarity Between Amorphous and Crystalline Phases: The Case of \ce{TiO2}}},
-  Author                   = {Mavra{\v{c}}i{\'{c}}, Juraj and \textbf{Mocanu, Felix C.} and Deringer, Volker L. and Cs{\'{a}}nyi, G{\'{a}}bor and Elliott, Stephen R.},
+  Author                   = {Mavra{\v{c}}i{\'{c}}, Juraj and Mocanu, Felix C. and Deringer, Volker L. and Cs{\'{a}}nyi, G{\'{a}}bor and Elliott, Stephen R.},
   Journal                  = {The Journal of Physical Chemistry Letters},
   Year                     = {2018},
 

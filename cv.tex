@@ -1,0 +1,164 @@
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+%\usepackage{libertine}
+%\usepackage[scaled=0.9]{inconsolata}
+\usepackage{fontspec}
+\setsansfont[BoldFont={Ubuntu Bold}]{Ubuntu}
+\setmonofont[Scale=0.9, BoldFont={DejaVu Serif}]{DejaVu Serif}
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{burgundy}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+\definecolor{color2}{RGB}{178, 69, 29}
+\definecolor{Pear}{RGB}{209, 226, 49}
+\usepackage[unicode,pdfencoding=auto]{hyperref}
+%\definecolor{color2}{RGB}{56,115,178}
+%\usepackage{doi}
+\usepackage[version=3]{mhchem}
+\usepackage[style=nature,sorting=ydnt]{biblatex}
+%\bibliography{pubs}
+\addbibresource{pubs.bib}
+
+
+\DeclareSourcemap{
+	\maps[datatype=bibtex]{
+		\map{
+			\step[fieldsource=keywords,
+			match=inprep,
+			final]
+			\step[fieldset=keywords, fieldvalue=inprep]
+		}
+	}
+}
+%hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Reverse numbering in publications list
+%\newcounter{entrycount}
+%\AtDataInput{\stepcounter{entrycount}}
+%\DeclareFieldFormat{labelnumber}{\mkrevbibnum{#1}}
+%\newcommand{\mkrevbibnum}[1]{\number\numexpr\value{entrycount}+1-#1}
+
+\newcommand\colourhref[3][color2]{\href{#2}{\color{#1}#3}}
+\newcommand{\doi}[1]{DOI: {\colourhref{https://dx.doi.org/#1}{\texttt{#1}}}}
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\cfoot{\emph{Last modified: \today}}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\makecvtitle}% <cmd>
+  {\httplink{\@homepage}}% <search>
+  {{\ifx\@homepage@shorthand\relax
+     \httplink{\@homepage}% Used \homepage{<URL>}
+   \else
+     \httplink[\@homepage@shorthand]{\@homepage}% Used \homepage[<desc>]{<URL>}
+   \fi}}% <replace>
+  {}{}% <succes><failure>
+\patchcmd{\thebibliography}
+{\advance\leftmargin\labelsep}
+  {\labelsep=0.7cm \advance\leftmargin\labelsep}{}{}
+\RenewDocumentCommand{\homepage}{o m}{%
+  \let\@homepage@shorthand\relax%
+  \providecommand\@homepage{#2}%
+  \IfNoValueF{#1}{\def\@homepage@shorthand{#1}}%
+}
+\makeatother
+
+% adjust the page margins
+\usepackage[scale=0.85]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{12cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Felix-Cosmin}{Mocanu}
+%\title{Resumé title}                               % optional, remove / comment the line if not wanted
+\email{fcm29@cam.ac.uk}                               % optional, remove / comment the line if not wanted
+\homepage{https://www.ch.cam.ac.uk/person/fcm29}
+\social[github]{fcmocanu}                           % optional, remove / comment the line if not wanted
+\quote{\textit{ab-initio} \texttt{molecular dynamics \textbullet\, phase-change memory materials \textbullet\, thermoelectric materials \textbullet\, machine-learned interatomic potentials \textbullet\, structure searching }}
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+\begin{document}
+%-----       resume       ---------------------------------------------------------
+\pagestyle{empty}
+\makecvtitle
+\section{\texttt{EDUCATION}}
+\cventry{2015--}{PhD Chemistry}{Chemical Physics Group}{University of Cambridge}{\textit{Expected submission 2018}}{}  % arguments 3 to 6 can be left empty
+\cventry{2014--2015}{MPhil Scientific Computing}{}{University of Cambridge}{\textit{Distinction}}{}  % arguments 3 to 6 can be left empty
+\cventry{2010--2014}{MSci Natural Sciences}{Department of Chemistry}{University of Cambridge}{\textit{Upper Second Class (Hons)}}{}
+
+\section{\texttt{RESEARCH}}
+\cvitem{PhD}{\textbf{First and second principles simulations of Ge-Sb-Te phase-change memory materials}}
+\cvitem{}{with Prof. Stephen R. Elliott and Prof. G\'abor Cs\'anyi \emph{(University of Cambridge)}}
+\cvitem{}{Monte-Carlo sampling techniques for the fitting of a transferable Ge-Sb-Te machine-learned interatomic potential. Non-equilibrium molecular dynamics and stochastic-boundary conditions methods for calculating thermal conductivity. Structure searching and prediction of novel compositions for phase-change memory and thermoelectric materials. PhD research undertaken as a member of the EPSRC CDT for Computational Methods in Materials Science.}
+
+\cvitem{MPhil}{\textbf{Towards high-throughput simulation of Ge-Sb-Te phase change materials}}
+\cvitem{}{with Prof. Stephen R. Elliott and Prof. G\'abor Cs\'anyi \emph{(University of Cambridge)}}
+\cvitem{}{Worked on a machine-learned Gaussian Approximation Potential for the \ce{Ge2Sb2Te5} phase-change memory material trained from \textit{ab-initio} molecular dynamics trajectories.}
+
+\cvitem{MSci}{\textbf{\textit{Ab-inito} Molecular Dynamics of Phase Change Materials - NAND gate simulation}}
+\cvitem{}{with Dr. James Dixon and Prof. Stephen R. Elliott \emph{(University of Cambridge)}}
+\cvitem{}{Worked on the \textit{ab-initio} molecular-dynamics simulations of the atomistic effects of thermal pulse programming in the \ce{Ge2Sb2Te5} phase-change memory material for applications in-memory logic and neuromorphic ("brain-like") computation.}
+
+\cvitem{UG}{\textbf{Synthesis and characterisation of functional curcubituril-azobenzene host-guest assemblies}}
+\cvitem{}{summer student with Dr. Jes\'us del Barrio Lasheras and Prof. Oren Scherman \emph{(University of Cambridge)}}
+
+\section{\texttt{INTERSHIPS}}
+
+\cvitem{2012}{\textbf{Rotatives Engineering Intern}}
+\cvitem{}{Cambridge Materials Placements for Undergraduates in Summer (CaMPUS) from the Materials Science Department with Dr.-Ing. Hartmut Schlums \emph{(at Rolls-Royce Deutschland)} studying turbine blade lifetime in jet engines. I used finite-element analysis in order to compare different yielding criteria and study the influence of creep on component lifetime. }
+\cvitem{}{}
+
+\section{\texttt{TEACHING}}
+\cvitem{2016-}{Organiser of fortnightly simulation tutorials \emph{(Chemical Physics Group)}.}
+\cvitem{2017}{Demonstrating Part IB Computational Practicals \emph{(Department of Chemistry)}.}
+\cvitem{2016-}{Demonstrating Part IA Labs \emph{(Department of Chemistry)}.}
+\cvitem{2016--}{Supervisor of Part II Theoretical Techniques course in Chemistry (Churchill College).}
+\cvitem{2015}{Demonstrator IA C++ Computer Practicals (Engineering Laboratory).}
+\cvitem{2014-2016}{Organiser of simulation sub-group meetings \emph{(Chemical Physics Group)}.}
+
+\section{\texttt{SIMULATION AND COMPUTING}}
+\cvdoubleitem{DFT}{\textbf{VASP}, CP2K, CASTEP, GPAW}{MD}{\textbf{LAMMPS}, QUIP}
+\cvdoubleitem{Platforms}{\textbf{Linux}}{Packages}{\textbf{ASE}, quippy, pymatgen}
+\cvdoubleitem{Languages}{\textbf{Python}, Julia, Fortran, C++}{Databases}{\textbf{MongoDB}, \textit{SQL}}
+{\centering System administrator for the Elliott group \emph{Hathor} computer cluster.\\[0.4em]}
+Tier-2 Resource Allocation (Project T2-CS020 “Thermoelectric Properties of Disordered Materials”): awarded 4 million CPU hours on the CSD3 supercomputer with Yuchen Hu and Prof. Stephen R. Elliott. \\
+\section{\texttt{PUBLICATIONS}}
+Status: {\color{darkgray} in preparation}, {\color{color2} submitted}, {\color{Pear} preprint}, {published}.\\
+
+\nocite{*}
+{\color{darkgray}\printbibliography[heading=none,keyword=submitted]} 
+\nocite{*}
+{\color{Pear}\printbibliography[heading=none,keyword=preprint]} 
+\nocite{*}
+%\vspace{-0.2in}
+\printbibliography[heading=none,notkeyword={submitted, preprint}]
+
+\section{\texttt{CONFERENCE PRESENTATIONS}}
+\cvitem{}{\textbf{CCP9 Young Researchers Event}}
+\cvitem{2018}{Modelling Ge−Sb−Te phase-change materials, Pico Talk, University of York}
+
+\cvitem{}{\textbf{International Symposium on Doped Amorphous Chalcogenides and Devices}}
+\cvitem{2018}{Computer simulations of phase-change materials, Poster Presentation, University of Cambridge - \emph{Runner-up Prize}}
+
+\cvitem{}{\textbf{Psi-k Workshop on Theory and Simulation Challenges of Nano Phase-Change Materials}}
+\cvitem{2017}{Transferability of a machine-learned interatomic potential for the \ce{Ge2Sb2Te5}, Poster Presentation, University of Warwick}
+
+\cvitem{}{\textbf{European Phase-Change and Ovonics Symposium}}
+\cvitem{2017}{A machine-learned interatomic potential for \ce{Ge-Sb-Te} phase-change materials, Poster Presentation, RWTH Aachen}
+
+\cvitem{}{\textbf{Psi-k Conference on Electronic Structure}}
+\cvitem{2015}{A Gaussian Approximation Potential (GAP)
+	for the \ce{Ge2Sb2Te5} phase change material, Poster Presentation, San Sebasti\'an}
+
+\section{\texttt{REFEREES}}
+\cvitem{}{Prof. Stephen R. Elliott, University of Cambridge; \colourhref{mailto:sre1@cam.ac.uk}{\texttt{sre1@cam.ac.uk}}}
+\cvitem{}{Prof G\'abor Cs\'anyi, University of Cambridge; \colourhref{mailto:gc121@cam.ac.uk}{\texttt{gc121@cam.ac.uk}}}
+
+\pagestyle{empty}
+
+\end{document}
