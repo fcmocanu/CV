@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+%\usepackage{libertine}
+%\usepackage[scaled=0.9]{inconsolata}
+\usepackage{fontspec}
+\setsansfont[Scale=0.9, BoldFont={Ubuntu Bold}]{Ubuntu}
+\setmonofont[Scale=0.8, BoldFont={DejaVu Serif}]{DejaVu Serif}
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{burgundy}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+\definecolor{color2}{RGB}{178, 69, 29}
+\definecolor{Pear}{RGB}{209, 226, 49}
+\usepackage[unicode,pdfencoding=auto]{hyperref}
+%\definecolor{color2}{RGB}{56,115,178}
+%\usepackage{doi}
+\usepackage[version=3]{mhchem}
+\usepackage[style=nature,sorting=none,backend=biber]{biblatex}
+%\bibliography{pubs}
+\addbibresource{pubs.bib}
+
+
+\DeclareSourcemap{
+	\maps[datatype=bibtex]{
+		\map{
+			\step[fieldsource=keywords,
+			match=submitted,
+			final]
+			\step[fieldset=keywords, fieldvalue=submitted]
+		}
+	}
+}
+%hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Reverse numbering in publications list
+\newcounter{entrycount}
+\AtDataInput{\stepcounter{entrycount}}
+\DeclareFieldFormat{labelnumber}{\mkrevbibnum{#1}}
+\newcommand{\mkrevbibnum}[1]{\number\numexpr\value{entrycount}+1-#1}
+
+\newcommand\colourhref[3][color2]{\href{#2}{\color{#1}#3}}
+\newcommand{\doi}[1]{DOI: {\colourhref{https://dx.doi.org/#1}{\texttt{#1}}}}
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+\cfoot{\emph{Last modified: \today}}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\makecvtitle}% <cmd>
+  {\httplink{\@homepage}}% <search>
+  {{\ifx\@homepage@shorthand\relax
+     \httplink{\@homepage}% Used \homepage{<URL>}
+   \else
+     \httplink[\@homepage@shorthand]{\@homepage}% Used \homepage[<desc>]{<URL>}
+   \fi}}% <replace>
+  {}{}% <succes><failure>
+\patchcmd{\thebibliography}
+{\advance\leftmargin\labelsep}
+  {\labelsep=0.7cm \advance\leftmargin\labelsep}{}{}
+\RenewDocumentCommand{\homepage}{o m}{%
+  \let\@homepage@shorthand\relax%
+  \providecommand\@homepage{#2}%
+  \IfNoValueF{#1}{\def\@homepage@shorthand{#1}}%
+}
+\makeatother
+
+% adjust the page margins
+\usepackage[scale=0.9]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{12cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+% personal data
+\name{Felix-Cosmin}{Mocanu}
+%\title{Resumé title}                               % optional, remove / comment the line if not wanted
+\email{fcm29@cam.ac.uk}                               % optional, remove / comment the line if not wanted
+\homepage{https://www.ch.cam.ac.uk/person/fcm29}
+%\social[github]{fcmocanu}                           % optional, remove / comment the line if not wanted
+%\quote{\textit{ab-initio} \texttt{molecular dynamics \textbullet\, phase-change memory materials \textbullet\, thermoelectric materials \textbullet\, machine-learned interatomic potentials \textbullet\, structure searching }}
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+\begin{document}
+	%-----       resume       ---------------------------------------------------------
+	\pagestyle{empty}
+	\makecvtitle
+
+\section{\texttt{PUBLICATIONS}}
+Status: {\color{darkgray} in preparation}, {\color{color2} submitted}, {\color{blue} preprint}, {published}.\\
+\nocite{*}
+{\color{color2}\printbibliography[heading=none,keyword=submitted]} 
+\nocite{*}
+\vspace{-0.2in}
+\printbibliography[heading=none, notkeyword=submitted]
+
+
+\end{document}

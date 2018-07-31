@@ -14,7 +14,7 @@
 %\definecolor{color2}{RGB}{56,115,178}
 %\usepackage{doi}
 \usepackage[version=3]{mhchem}
-\usepackage[style=nature,sorting=ydnt]{biblatex}
+\usepackage[style=nature,sorting=none,backend=biber]{biblatex}
 %\bibliography{pubs}
 \addbibresource{pubs.bib}
 
@@ -23,12 +23,12 @@
 	\maps[datatype=bibtex]{
 		\map{
 			\step[fieldsource=keywords,
-			match=inprep,
-			final]
-			\step[fieldset=keywords, fieldvalue=inprep]
+			match=submitted, final]
+			\step[fieldset=keywords, fieldvalue=submitted]
 		}
 	}
 }
+
 %hyphenation
 \tolerance=1
 \emergencystretch=\maxdimen
@@ -36,10 +36,10 @@
 \hbadness=10000
 
 % Reverse numbering in publications list
-%\newcounter{entrycount}
-%\AtDataInput{\stepcounter{entrycount}}
-%\DeclareFieldFormat{labelnumber}{\mkrevbibnum{#1}}
-%\newcommand{\mkrevbibnum}[1]{\number\numexpr\value{entrycount}+1-#1}
+\newcounter{entrycount}
+\AtDataInput{\stepcounter{entrycount}}
+\DeclareFieldFormat{labelnumber}{\mkrevbibnum{#1}}
+\newcommand{\mkrevbibnum}[1]{\number\numexpr\value{entrycount}+1-#1}
 
 \newcommand\colourhref[3][color2]{\href{#2}{\color{#1}#3}}
 \newcommand{\doi}[1]{DOI: {\colourhref{https://dx.doi.org/#1}{\texttt{#1}}}}
@@ -128,15 +128,12 @@
 {\centering System administrator for the Elliott group \emph{Hathor} computer cluster.\\[0.4em]}
 Tier-2 Resource Allocation (Project T2-CS020 “Thermoelectric Properties of Disordered Materials”): awarded 4 million CPU hours on the CSD3 supercomputer with Yuchen Hu and Prof. Stephen R. Elliott. \\
 \section{\texttt{PUBLICATIONS}}
-Status: {\color{darkgray} in preparation}, {\color{color2} submitted}, {\color{Pear} preprint}, {published}.\\
-
+Status: {\color{darkgray} in preparation}, {\color{color2} submitted}, {\color{blue} preprint}, {published}.
 \nocite{*}
-{\color{darkgray}\printbibliography[heading=none,keyword=submitted]} 
+{\color{color2}\printbibliography[heading=none,keyword=submitted]} 
 \nocite{*}
-{\color{Pear}\printbibliography[heading=none,keyword=preprint]} 
-\nocite{*}
-%\vspace{-0.2in}
-\printbibliography[heading=none,notkeyword={submitted, preprint}]
+\vspace{-0.2in}
+\printbibliography[heading=none, notkeyword=submitted]
 
 \section{\texttt{CONFERENCE PRESENTATIONS}}
 
