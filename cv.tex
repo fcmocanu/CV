@@ -3,20 +3,23 @@
 %\usepackage{libertine}
 %\usepackage[scaled=0.9]{inconsolata}
 \usepackage{fontspec}
-\setsansfont[Scale=0.9, BoldFont={Ubuntu Bold}]{Ubuntu}
+\setsansfont[Scale=0.9, BoldFont={Fira Sans Bold}]{Fira Sans}
 \setmonofont[Scale=0.8, BoldFont={DejaVu Serif}]{DejaVu Serif}
 % moderncv themes
 \moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvcolor{burgundy}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
-\definecolor{color2}{RGB}{178, 69, 29}
-\definecolor{Pear}{RGB}{209, 226, 49}
+\definecolor{color0}{RGB}{0, 0, 0}
+\definecolor{color1}{RGB}{53, 84, 128}
+\definecolor{color2}{RGB}{65, 96, 128}
+
+
 \usepackage[unicode,pdfencoding=auto]{hyperref}
 %\definecolor{color2}{RGB}{56,115,178}
 %\usepackage{doi}
 \usepackage[version=3]{mhchem}
-\usepackage[style=nature,sorting=none,backend=biber]{biblatex}
+\usepackage[style=nature, sorting=none, maxbibnames = 99, backend=biber]{biblatex}
 %\bibliography{pubs}
-\addbibresource{pubs.bib}
+\addbibresource{./publications/pubs.bib}
 
 
 \DeclareSourcemap{
@@ -76,10 +79,10 @@
 % personal data
 \name{Felix-Cosmin}{Mocanu}
 %\title{Resumé title}                               % optional, remove / comment the line if not wanted
-\email{fcm29@cam.ac.uk}                               % optional, remove / comment the line if not wanted
-\homepage{https://www.ch.cam.ac.uk/person/fcm29}
+\email{melccel@gmail.com}                               % optional, remove / comment the line if not wanted
+%g\homepage{https://www.ch.cam.ac.uk/person/fcm29}
 \social[github]{fcmocanu}                           % optional, remove / comment the line if not wanted
-\quote{\textit{ab-initio} \texttt{molecular dynamics \textbullet\, phase-change memory materials \textbullet\, thermoelectric materials \textbullet\, machine-learned interatomic potentials \textbullet\, structure searching }}
+\quote{\texttt{computational electrochemistry \textbullet\, molecular dynamics \textbullet\, phase-change memory materials \textbullet\, thermal transport \textbullet\, machine-learned interatomic potentials \textbullet\, quantum-dots \textbullet\, non-equilibrium and glassy dynamics }}
 \renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
 
 \begin{document}
@@ -87,18 +90,29 @@
 \pagestyle{empty}
 \makecvtitle
 \section{\texttt{EDUCATION}}
-\cventry{2015--}{PhD Chemistry}{Chemical Physics Group}{University of Cambridge}{\textit{Expected submission 2018}}{}  % arguments 3 to 6 can be left empty
-\cventry{2014--2015}{MPhil Scientific Computing}{}{University of Cambridge}{\textit{Distinction}}{}  % arguments 3 to 6 can be left empty
+\cventry{2015--2018}{PhD Chemistry}{Department of Chemistry}{University of Cambridge}{\textit{2018 Outstanding Thesis Prize Winner}}{}  % arguments 3 to 6 can be left empty
+\cventry{2014--2015}{MPhil Scientific Computing}{Centre for Doctoral Training in Computational Methods for Materials Science}{University of Cambridge}{\textit{Distinction}}{} % arguments 3 to 6 can be left empty
 \cventry{2010--2014}{MSci Natural Sciences}{Department of Chemistry}{University of Cambridge}{\textit{Upper Second Class (Hons)}}{}
 
 \section{\texttt{RESEARCH}}
+
+\cvitem{Postdoc}{\textbf{Digital Reticular Chemistry, (2026--)}}
+\cvitem{}{Postdoctoral Researcher in the Computational Modelling (CoMo) Group, Department of Chemical Engineering and Biotechnology at the University of Cambridge. Working in the group of Prof. Markus Kraft on the discovery and optimization of metal organic polyhedra materials for carbon capture, drug delivery and photocatalysis applications.}
+
+\cvitem{Postdoc}{\textbf{Computational modelling of Li-ion battery cathodes, (2023--2025)}}
+\cvitem{}{Postdoctoral Research Fellow in the Materials Modelling Laboratory (MML), Department of Materials at the University of Oxford. Working in the group of Prof. Saiful Islam  on the computational modelling of next-generation Li-ion battery cathode materials. Member of the CATMAT collaboration of the Faraday Institution.}
+
+\cvitem{Postdoc}{\textbf{Low-temperature excitations in glasses, (2020--2023)}}
+\cvitem{}{Postdoctoral Research Fellow in the group on Disordered Systems and applications (Francesco Zamponi) at Laboratoire de Physique de l'\'Ecole normale sup\'erieure \emph{(ENS, Paris)}}
+\cvitem{}{Working on numerical models of tunneling two-level systems in glasses as part of the ERC project "GlassUniversality" and as a member of the Simons Collaboration on "Cracking the Glass Problem". }
+
+\cvitem{Postdoc}{\textbf{Atomistic simulations of materials for quantum-dot LED and smart textile applications, (2018--2020)}}
+\cvitem{}{Research Assistant in the Nanoscience and Technology Group (Prof. Jong Min Kim) at the Centre for Advanced Photonics and Electronics \emph{(University of Cambridge)}}
+\cvitem{}{Modelling semiconductor alloys for quantum dot light emitting diodes (QDLED). As part of our multidisciplinary team (ERC project 1D-Neon) I worked on the challenges of fiber-based electronic devices from materials to integrated smart textile systems. }
+
 \cvitem{PhD}{\textbf{First and second principles simulations of Ge-Sb-Te phase-change memory materials}}
 \cvitem{}{with Prof. Stephen R. Elliott and Prof. G\'abor Cs\'anyi \emph{(University of Cambridge)}}
-\cvitem{}{Monte-Carlo sampling techniques for the fitting of a transferable Ge-Sb-Te machine-learned interatomic potential. Non-equilibrium molecular dynamics and stochastic-boundary conditions methods for calculating thermal conductivity. Structure searching and prediction of novel compositions for phase-change memory and thermoelectric materials. PhD research undertaken as a member of the EPSRC CDT for Computational Methods in Materials Science.}
-
-\cvitem{MPhil}{\textbf{Towards high-throughput simulation of Ge-Sb-Te phase change materials}}
-\cvitem{}{with Prof. Stephen R. Elliott and Prof. G\'abor Cs\'anyi \emph{(University of Cambridge)}}
-\cvitem{}{Worked on a machine-learned Gaussian Approximation Potential for the \ce{Ge2Sb2Te5} phase-change memory material trained from \textit{ab-initio} molecular dynamics trajectories and its application in large-scale and high-throughput simulations.}
+\cvitem{}{Monte-Carlo sampling techniques for the fitting of a transferable Ge-Sb-Te machine-learned interatomic potential. Structure searching and prediction of novel compositions for phase-change memory and thermoelectric materials. Non-equilibrium molecular dynamics and stochastic-boundary conditions methods for calculating thermal conductivity. }
 
 \cvitem{MSci}{\textbf{\textit{Ab-inito} Molecular Dynamics of Phase Change Materials - NAND gate simulation}}
 \cvitem{}{with Dr. James Dixon and Prof. Stephen R. Elliott \emph{(University of Cambridge)}}
@@ -107,14 +121,17 @@
 \cvitem{UG}{\textbf{Synthesis and characterisation of functional curcubituril-azobenzene host-guest assemblies}}
 \cvitem{}{summer student with Dr. Jes\'us del Barrio Lasheras and Prof. Oren Scherman \emph{(University of Cambridge)}}
 
-\section{\texttt{INTERSHIPS}}
+\section{\texttt{INTERNSHIPS}}
 
 \cvitem{2012}{\textbf{Rotatives Engineering Intern}}
 \cvitem{}{Cambridge Materials Placements for Undergraduates in Summer (CaMPUS) from the University of Camb ridge Materials Science Department with Dr.-Ing. Hartmut Schlums \emph{(Rolls-Royce Deutschland)} studying turbine blade lifetime in jet engines. }
 \cvitem{}{}
 
+\cvitem{2018}{\textbf{PhD Intern}}
+\cvitem{}{Center for Doctoral Training in Computational Methods for Materials Science Internship at Dassault Syst\'emes, Cambridge, United Kingdom - with Dr. Felix Hanke, making workflows for estimating ionic transport of \ce{Li} ions in commercial liquid electrolytes. }
+\cvitem{}{}
 \section{\texttt{TEACHING}}
-\cvitem{2016--}{Organiser of fortnightly simulation tutorials \emph{(Chemical Physics Group)}.}
+\cvitem{2016--2018}{Organiser of fortnightly simulation tutorials \emph{(Chemical Physics Group)}.}
 \cvitem{2017}{Demonstrating Part IB Computational Practicals \emph{(Department of Chemistry)}.}
 \cvitem{2016}{Demonstrating Part IA Labs \emph{(Department of Chemistry)}.}
 \cvitem{2016--}{Supervisor of Part II Theoretical Techniques course in Chemistry (Churchill College).}
@@ -123,36 +140,74 @@
 
 \section{\texttt{SIMULATION AND COMPUTING}}
 \cvdoubleitem{DFT}{\textbf{VASP}, CP2K, CASTEP, GPAW}{MD}{\textbf{LAMMPS}, QUIP}
-\cvdoubleitem{Platforms}{\textbf{Linux}}{Packages}{\textbf{ASE}, quippy, pymatgen}
-\cvdoubleitem{Languages}{\textbf{Python}, Julia, Fortran, C++}{Databases}{\textbf{MongoDB}, \textit{SQL}}
+\cvdoubleitem{Packages}{\textbf{ASE}, quippy, pymatgen}{MLIP}{\textbf{MACE}, CHGNet, GAP}
+\cvdoubleitem{Languages}{\textbf{Python}, Julia, Fortran, C++}{Platforms}{\textbf{Linux}}
+
 {\centering System administrator for the Elliott group \emph{Hathor} computer cluster.\\[0.4em]}
-Tier-2 Resource Allocation (Project T2-CS020 “Thermoelectric Properties of Disordered Materials”): awarded 4 million CPU hours on the CSD3 supercomputer with Yuchen Hu and Prof. Stephen R. Elliott. \\
+
+Tier-2 Resource Allocation (Project T2-CS020 ``Thermoelectric Properties of Disordered Materials"): awarded 4 million CPU hours on the CSD3 supercomputer with Yuchen Hu and Prof. Stephen R. Elliott. \\
+
+Tier-2 Resource Allocation (Project T2-CS073 ``First-principles simulations of nanocrystal early-stage growth and morphology"): awarded 3.5 million CPU hours and 25,000 GPU hours on the CSD3 supercomputer with Prof. Jong Min Kim. \\
+
+MesoPSL resource allocation: awarded 500,000 CPU hours on the MesoPSL supercomputer with Dr. Francesco Zamponi at ENS. \\
+
+Grand-challenge proposal ``Understanding ion migration and stacking transitions in \ce{Li}-rich layered cathode materials for high-energy-density batteries": awarded 14 million CPU hours on the Archer2 UK National Supercomputer
+
+\definecolor{color3}{RGB}{46,54,64}
+\definecolor{color4}{RGB}{29,33,38}
+\definecolor{color5}{RGB}{121,140,138}
+
 \section{\texttt{PUBLICATIONS}}
-Status: {\color{darkgray} in preparation}, {\color{color2} submitted}, {\color{blue} preprint}, {published}.
+Status: %{\color{color5} in preparation},
+{\color{color2} submitted},
+{\color{color5} preprint},
+{\color{color0} published}.
+\vspace{0.1in}
 \nocite{*}
+
 {\color{color2}\printbibliography[heading=none,keyword=submitted]} 
 \nocite{*}
+%\vspace{-0.2in}
+%{\color{color5}\printbibliography[heading=none,keyword=preprint]} 
 \vspace{-0.2in}
-\printbibliography[heading=none, notkeyword=submitted]
+\printbibliography[heading=none, notkeyword=submitted, notkeyword=preprint]
 
 \section{\texttt{CONFERENCE PRESENTATIONS}}
 
+%\cvitem{}{\textbf{10th International Workshop on Materials Physics }}
+%\cvitem{2025}{ \emph{Computational design of high energy density cathode materials for Li-ion batteries}, Invited Talk, University of Bucharest, Romania}
+
+\cvitem{}{\textbf{Faraday Institution Conference}}
+\cvitem{2024}{ \emph{Voltage fade in \ce{Na_x[Li_{0.2}Mn_{0.8}]O2}	an oxygen-redox cathode material}, Poster Presentation, University of Newcastle, United Kingdom}
+
+\cvitem{}{\textbf{XVI International Workshop on Complex Systems}}
+\cvitem{2023}{ \emph{On the microscopic nature of two-level
+	systems in glasses}, Contributed Talk, Andalo, Italy - \underline{Prize for the best talk by an early-career researcher} }
+
+\cvitem{}{\textbf{Physics of non-crystalline solids}}
+\cvitem{2022}{\emph{A heart of glass - low-energy excitations in a fragile glass model}, Contributed Talk, University of Kent, United Kingdom}
+
+%\cvitem{}{\textbf{``Nicol\'{a}s Cabrera'' Summer School 2021: Ultrastable Glasses}}
+%\cvitem{2021}{\emph{A heart of glass - two-level systems in a model fragile glass former}, Poster Presentation, Madrid, Spain}
+
 \cvitem{}{\textbf{International Symposium on Doped Amorphous Chalcogenides and Devices}}
-\cvitem{2018}{Computer simulations of phase-change materials, Poster Presentation, Grasmere, United Kingdom - \emph{Runner-up Prize}}
+\cvitem{2018}{\emph{Computer simulations of phase-change materials}, Poster Presentation, Grasmere, United Kingdom - \underline{Runner-up Poster Prize}}
 
 \cvitem{}{\textbf{European Phase-Change and Ovonics Symposium}}
-\cvitem{2017}{A machine-learned interatomic potential for \ce{Ge-Sb-Te} phase-change materials, Poster Presentation, RWTH Aachen, Germany}
+\cvitem{2017}{\emph{A machine-learned interatomic potential for \ce{Ge-Sb-Te} phase-change materials}, Poster Presentation, RWTH Aachen, Germany}
 
 %\newpage
 
 \cvitem{}{\textbf{Psi-k Conference on Electronic Structure}}
-\cvitem{2015}{A Gaussian Approximation Potential (GAP)
-	for the \ce{Ge2Sb2Te5} phase change material, Poster Presentation, San Sebasti\'an, Spain}
+\cvitem{2015}{\emph{A Gaussian Approximation Potential (GAP)
+	for the \ce{Ge2Sb2Te5} phase change material}, Poster Presentation, San Sebasti\'an, Spain}
 
 \section{\texttt{REFEREES}}
+\cvitem{}{Prof. Saiful Islam, University of Oxford; \colourhref{mailto:saiful.islam@materials.ox.ac.uk}{\texttt{saiful.islam@materials.ox.ac.uk}}}
+\cvitem{}{Dr. Francesco Zamponi, \'Ecole Normale Sup\'erieure Paris; \colourhref{mailto:HouB6@cardiff.ac.uk}{\texttt{francesco.zamponi@phys.ens.fr}}}
+\cvitem{}{Dr. Bo Hou, University of Cardiff; \colourhref{mailto:HouB6@cardiff.ac.uk}{\texttt{HouB6@cardiff.ac.uk}}}
 \cvitem{}{Prof. Stephen R. Elliott, University of Cambridge; \colourhref{mailto:sre1@cam.ac.uk}{\texttt{sre1@cam.ac.uk}}}
 \cvitem{}{Prof G\'abor Cs\'anyi, University of Cambridge; \colourhref{mailto:gc121@cam.ac.uk}{\texttt{gc121@cam.ac.uk}}}
-
 \pagestyle{empty}
 
 \end{document}
